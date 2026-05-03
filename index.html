@@ -5,9 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GrowthOS — AI Voice Agents, Made Simple</title>
   <meta name="description" content="Save Time, Make More Money, And Never Miss An Opportunity By Automating Lead Nurturing With AI." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0c1a3a" />
+  <link rel="canonical" href="https://growthos.ai/" /><!-- TODO: replace with real domain -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://growthos.ai/" /><!-- TODO: replace with real domain -->
+  <meta property="og:title" content="GrowthOS — AI Voice Agents, Made Simple" />
+  <meta property="og:description" content="Save Time, Make More Money, And Never Miss An Opportunity By Automating Lead Nurturing With AI." />
+  <meta property="og:site_name" content="GrowthOS" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Jeaviit" />
+  <meta name="twitter:title" content="GrowthOS — AI Voice Agents, Made Simple" />
+  <meta name="twitter:description" content="Save Time, Make More Money, And Never Miss An Opportunity By Automating Lead Nurturing With AI." />
+  <!-- Resource hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://app.cal.com" />
+  <link rel="dns-prefetch" href="https://app.cal.com" />
+  <link rel="dns-prefetch" href="https://flagcdn.com" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GrowthOS",
+    "description": "AI Voice Agents that automate lead nurturing — save time, make more money, and never miss an opportunity.",
+    "url": "https://growthos.ai/",
+    "sameAs": [
+      "https://x.com/Jeaviit",
+      "https://www.linkedin.com/in/jeaviit-bhaat/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "jeaviitbhaat@gmail.com",
+      "contactType": "sales"
+    }
+  }
+  </script>
   <style>
     /* ── Tokens ─────────────────────────────────────────────── */
     :root {
@@ -54,78 +92,103 @@
     .container-6xl { width: 100%; max-width: 1152px; margin: 0 auto; padding: 0 16px; }
 
     /* ═══════════════════════════════════════════════════════════
-       NAV
+       LUMA BAR (floating bottom nav)
     ═══════════════════════════════════════════════════════════ */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      padding: 18px 16px 10px;
-      transition: padding .4s ease;
-    }
-    nav.scrolled { padding: 10px 80px; }
-    .nav-inner {
-      max-width: 1152px; margin: 0 auto;
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
-      border: 1px solid var(--gray-200); border-radius: 24px;
-      padding: 20px 32px;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: box-shadow .4s ease, padding .4s ease, max-width .4s ease;
-    }
-    nav.scrolled .nav-inner {
-      padding: 20px 32px;
-      max-width: 860px;
-      box-shadow: 0 4px 24px rgba(0,0,0,.08);
-    }
-    .logo { display: flex; align-items: center; gap: 10px; transition: transform .25s ease; }
-    .logo:hover { transform: scale(1.06); }
-    .logo-img { width: 40px; height: 40px; border-radius: 10px; background: var(--blue); display: flex; align-items: center; justify-content: center; }
-    .logo-img svg { width: 22px; height: 22px; }
-    .logo-name { font-size: 17px; font-weight: 700; color: var(--gray-900); }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-link {
-      position: relative; padding: 8px 16px; border-radius: 12px;
-      font-size: 14px; font-weight: 500; color: var(--gray-700);
-      transition: color .2s; cursor: pointer;
-    }
-    .nav-link:hover { color: var(--gold); }
-    .nav-link::after {
-      content: ''; position: absolute; bottom: 0; left: 16px; right: 16px; height: 2px;
-      background: var(--blue);
-      border-radius: 99px; transform: scaleX(0); transition: transform .25s;
-    }
-    .nav-link:hover::after { transform: scaleX(1); }
     .btn-demo {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer;
+      padding: 12px 24px; border-radius: 9999px; border: none; cursor: pointer;
       font-family: var(--font); font-size: 14px; font-weight: 600; color: #fff;
       background: var(--blue);
       transition: all .3s; box-shadow: 0 4px 20px rgba(37,99,235,.3);
       text-decoration: none;
     }
     .btn-demo:hover { background: var(--dark2); box-shadow: 0 8px 30px rgba(37,99,235,.45); transform: translateY(-1px); }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-    .hamburger svg { width: 24px; height: 24px; }
-    /* Mobile drawer */
-    .mob-drawer {
-      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,.5); z-index: 49;
+    .luma-bar {
+      position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 51;
+      display: flex; align-items: center;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(229,231,235,.6);
+      border-radius: 9999px;
+      padding: 12px 36px 12px 14px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      gap: 4px; white-space: nowrap;
+      transition: padding .4s ease, top .4s ease, box-shadow .4s ease;
     }
-    .mob-drawer.open { display: block; }
-    .mob-panel {
-      position: fixed; top: 0; right: 0; bottom: 0; width: 280px;
-      background: var(--white); padding: 24px; z-index: 50;
-      display: flex; flex-direction: column; gap: 8px;
+    .luma-bar.scrolled {
+      top: 14px;
+      padding: 7px 24px 7px 10px;
+      box-shadow: 0 6px 28px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
     }
-    .mob-panel a { font-size: 16px; font-weight: 500; color: var(--gray-700); padding: 12px 0; border-bottom: 1px solid var(--gray-200); }
-    .mob-panel a:last-child { border: none; }
+    .luma-glow {
+      position: absolute; height: 48px;
+      background: linear-gradient(135deg, rgba(251,191,36,.45), rgba(217,119,6,.35));
+      border-radius: 9999px; filter: blur(14px);
+      z-index: 0; pointer-events: none;
+      top: 50%; transform: translate(-50%, -50%);
+      transition: left .45s cubic-bezier(.34,1.56,.64,1), width .35s cubic-bezier(.34,1.56,.64,1);
+    }
+    .luma-logo {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 22px 10px 8px;
+      border-right: 1px solid rgba(209,213,219,.7);
+      margin-right: 8px;
+      text-decoration: none; color: var(--gray-900);
+      flex-shrink: 0; z-index: 1;
+      transition: transform .28s cubic-bezier(.34,1.56,.64,1);
+      transform-origin: left center;
+    }
+    .luma-logo:hover { transform: scale(1.07); }
+    .luma-logo-icon { width: 38px; height: 38px; flex-shrink: 0; }
+    .luma-bar.scrolled .luma-logo-icon { width: 32px; height: 32px; }
+    .luma-logo-name { font-size: 17px; font-weight: 700; transition: font-size .4s ease; }
+    .luma-bar.scrolled .luma-logo-name { font-size: 15px; }
+    .luma-links { display: flex; align-items: center; gap: 4px; z-index: 1; }
+    .luma-link {
+      padding: 12px 24px;
+      font-size: 15px; font-weight: 500; color: var(--gray-600);
+      border-radius: 9999px; cursor: pointer; text-decoration: none;
+      transition: color .2s, padding .4s ease, font-size .4s ease;
+      white-space: nowrap; position: relative; z-index: 1;
+    }
+    .luma-bar.scrolled .luma-link { padding: 9px 18px; font-size: 14px; }
+    .luma-link:hover { color: var(--gold); }
+    .luma-link.active { color: var(--gold); font-weight: 600; }
+    @media (max-width: 640px) {
+      .luma-logo-name { display: none; }
+      .luma-bar { padding: 10px 18px 10px 10px; }
+      .luma-bar.scrolled { padding: 6px 14px 6px 8px; }
+      .luma-logo { padding: 10px 14px 10px 6px; margin-right: 4px; }
+      .luma-link { padding: 12px 14px; font-size: 13px; }
+      .luma-bar.scrolled .luma-link { padding: 8px 12px; }
+    }
 
     /* ═══════════════════════════════════════════════════════════
        HERO
     ═══════════════════════════════════════════════════════════ */
     .hero {
       min-height: 640px; display: flex; align-items: center; justify-content: center;
-      padding-top: var(--nav-h); padding-bottom: 40px;
+      padding-top: 100px; padding-bottom: 40px;
       position: relative; overflow: hidden; background: var(--white);
     }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, #ffffff);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-grid-base,
+    .hero-grid-reveal {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .hero-grid-base { opacity: 0.05; }
+    .hero-grid-reveal { opacity: 0.4; }
+    .hero-grid-base svg,
+    .hero-grid-reveal svg { width: 100%; height: 100%; display: block; }
     /* Gold-orange/blue radial glows */
     .hero-glow-left {
       position: absolute; top: 0; left: 0; width: 60vw; height: 140vh; pointer-events: none; z-index: 0;
@@ -158,7 +221,17 @@
     ═══════════════════════════════════════════════════════════ */
     .comparison-section {
       background: linear-gradient(160deg, #fffbeb 0%, #ffffff 45%, #eff6ff 100%);
-      padding: 32px 0 0;
+      padding: 32px 0 64px;
+      position: relative;
+    }
+    .comparison-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, #ffffff, transparent);
+      pointer-events: none;
+      z-index: 1;
     }
     .comparison-heading {
       font-size: clamp(28px, 4.5vw, 48px); font-weight: 700;
@@ -171,7 +244,7 @@
       border-radius: 2rem; padding: 24px;
       min-height: 100vh;
     }
-    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .comp-card {
       background: var(--white); border: 1px solid var(--gray-200);
       border-radius: 12px; padding: 32px; box-shadow: 0 10px 40px rgba(0,0,0,.06);
@@ -220,30 +293,99 @@
     .btn-dark:hover { background: #0a1020; }
     /* Vertical marquee columns */
     .marquee-cols {
-      position: relative; height: 400px; overflow: hidden;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      position: relative; height: 460px; overflow: hidden;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
       mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
     }
-    .marquee-col { display: flex; flex-direction: column; gap: 8px; }
+    .marquee-col { display: flex; flex-direction: column; gap: 16px; }
     .marquee-col-inner {
-      display: flex; flex-direction: column; gap: 8px;
+      display: flex; flex-direction: column; gap: 16px;
       animation: marquee-v 20s linear infinite;
     }
     .marquee-col-inner.reverse { animation-direction: reverse; animation-duration: 25s; }
     .marquee-col-inner.slow { animation-duration: 30s; }
-    .marquee-col:hover .marquee-col-inner { animation-play-state: paused; }
+    .marquee-col-inner:has(.integ-item:hover) { animation-play-state: paused; }
     @keyframes marquee-v {
       0% { transform: translateY(0); }
       100% { transform: translateY(calc(-50% - 4px)); }
     }
+    .integ-item {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
     .integ-circle {
-      width: 96px; height: 96px; border-radius: 50%;
-      background: rgba(255,255,255,.15); backdrop-filter: blur(8px);
+      width: 112px; height: 112px; border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 6px 28px rgba(0,0,0,0.25);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin: 0 auto;
+      transition: transform .2s, box-shadow .2s;
     }
-    .integ-circle img { width: 56px; height: 56px; object-fit: cover; }
+    .integ-circle:hover { transform: scale(1.06); box-shadow: 0 10px 36px rgba(0,0,0,0.35); }
+    .integ-circle img { width: 68px; height: 68px; object-fit: contain; }
+    .integ-label {
+      color: rgba(255,255,255,0.88); font-size: 12px; font-weight: 600;
+      text-align: center; letter-spacing: 0.02em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       INTEGRATION — MOBILE HORIZONTAL SCROLL
+    ═══════════════════════════════════════════════════════════ */
+    .integ-mobile-wrap {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      padding: 8px 0 40px;
+      margin: 0 -24px;
+    }
+    .integ-mobile-wrap::before,
+    .integ-mobile-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0;
+      width: 64px; z-index: 2; pointer-events: none;
+    }
+    .integ-mobile-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--dark1), transparent);
+    }
+    .integ-mobile-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #1a3a6b, transparent);
+    }
+    .integ-mobile-track {
+      display: flex; gap: 20px;
+      width: max-content; padding: 0 10px;
+      animation: marquee-h 28s linear infinite;
+    }
+    .integ-mobile-track:has(.integ-mobile-item:hover) { animation-play-state: paused; }
+    @keyframes marquee-h {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .integ-mobile-item {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      flex-shrink: 0;
+    }
+    .integ-mobile-circle {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s;
+    }
+    .integ-mobile-item:hover .integ-mobile-circle,
+    .integ-mobile-item.is-active .integ-mobile-circle {
+      transform: scale(1.12);
+      box-shadow: 0 10px 36px rgba(0,0,0,0.35);
+    }
+    .integ-mobile-track.is-paused { animation-play-state: paused; }
+    .integ-mobile-label {
+      color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 600;
+      text-align: center;
+    }
+    @media (max-width: 1024px) {
+      .integ-mobile-wrap { display: block; }
+    }
 
     /* ═══════════════════════════════════════════════════════════
        FEATURES
@@ -316,34 +458,177 @@
        BOOKING / CTA
     ═══════════════════════════════════════════════════════════ */
     .booking {
-      width: 100%; text-align: center; padding: 16px 8px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      width: 100%; padding: 80px 24px;
+      background: var(--gray-50);
+      display: flex; flex-direction: column; align-items: center; text-align: center;
     }
-    .booking h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; color: var(--gray-900); margin-bottom: 36px; }
-    .booking-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .booking h2 {
+      font-size: clamp(26px, 3.5vw, 38px); font-weight: 800;
+      color: var(--gray-900); margin-bottom: 12px;
+    }
+    .booking-sub {
+      font-size: 15px; color: var(--gray-500); margin-bottom: 40px;
+    }
+    /* Desktop: no fixed height — Cal.com auto-sizes the iframe via postMessage */
+    .booking-embed-wrap {
+      width: 100%; max-width: 900px;
+    }
+    #my-cal-inline-growthos-introduction-call {
+      width: 100%; min-height: 700px;
+    }
+    /* Mobile: fixed-height scrollable card */
+    @media (max-width: 768px) {
+      .booking { padding: 56px 16px; }
+      .booking-embed-wrap {
+        border-radius: 16px;
+        border: 1px solid var(--gray-200);
+        box-shadow: 0 4px 32px rgba(0,0,0,.09);
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        height: 560px;
+      }
+      #my-cal-inline-growthos-introduction-call {
+        height: 1200px;
+        min-height: unset;
+      }
+    }
 
     /* ═══════════════════════════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════════════════════════ */
-    footer {
-      background: linear-gradient(to right, var(--dark1), var(--dark2), #1a3a6b);
-      color: #fff; padding: 24px 16px;
+    .footer-section { position: relative; width: 100%; overflow: hidden; }
+    .footer-new {
+      border-top: 1px solid var(--gray-200);
+      background: var(--white);
+      margin-top: 0;
+      position: relative;
+      min-height: 480px;
     }
-    .footer-inner {
+    @media (min-width: 640px) { .footer-new { min-height: 560px; } }
+    @media (min-width: 768px) { .footer-new { min-height: 640px; } }
+    .footer-container {
       max-width: 1152px; margin: 0 auto;
-      display: flex; flex-direction: column; align-items: center; gap: 24px;
+      min-height: inherit; position: relative;
+      padding: 40px 16px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .footer-top {
+      display: flex; flex-direction: column; align-items: center;
+      margin-bottom: 80px;
+    }
+    @media (min-width: 768px) { .footer-top { margin-bottom: 0; } }
+    .footer-brand-name { font-size: 30px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+    .footer-brand-desc {
+      color: var(--gray-500); font-weight: 600; text-align: center;
+      max-width: 384px; padding: 0 16px; line-height: 1.6;
+    }
+    @media (min-width: 640px) { .footer-brand-desc { width: 384px; padding: 0; } }
+    .footer-social { display: flex; gap: 16px; margin: 12px 0 32px; }
+    .footer-social a {
+      color: var(--gray-400); transition: color .2s;
+      display: flex; align-items: center;
+    }
+    .footer-social a:hover { color: var(--gray-800); }
+    .footer-social a svg { width: 24px; height: 24px; transition: transform .3s; }
+    .footer-social a:hover svg { transform: scale(1.1); }
+    .footer-nav-new {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 16px; font-size: 14px; font-weight: 500; color: var(--gray-500);
+      max-width: 100%; padding: 0 16px;
+    }
+    .footer-nav-new a { transition: color .3s, font-weight .3s; white-space: nowrap; }
+    .footer-nav-new a:hover { color: var(--gray-900); font-weight: 600; }
+    .footer-bottom-bar {
+      display: flex; flex-direction: column; gap: 8px;
+      align-items: center; justify-content: center;
+      padding: 0 16px; margin-top: 80px;
     }
     @media (min-width: 768px) {
-      .footer-inner { flex-direction: row; justify-content: space-between; }
+      .footer-bottom-bar {
+        flex-direction: row; gap: 4px;
+        justify-content: center; margin-top: 96px; padding: 0;
+      }
     }
-    .footer-logo { display: flex; align-items: center; gap: 12px; }
-    .footer-logo-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--blue); display: flex; align-items: center; justify-content: center; }
-    .footer-logo-icon svg { width: 22px; height: 22px; }
-    .footer-logo-name { font-size: 17px; font-weight: 700; white-space: nowrap; }
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-    .footer-nav a { font-size: 15px; color: #fff; transition: text-decoration .2s; }
-    .footer-nav a:hover { text-decoration: underline; }
-    .footer-copy { font-size: 14px; color: rgba(255,255,255,.6); text-align: center; }
+    .footer-bottom-bar p,
+    .footer-bottom-bar a { font-size: 16px; color: var(--gray-500); }
+    .footer-bottom-bar a:hover { color: var(--gray-900); font-weight: 500; }
+    .footer-bg-text {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      bottom: 160px;
+      font-size: clamp(3rem, 12vw, 10rem);
+      font-weight: 800; letter-spacing: -0.05em;
+      pointer-events: none; user-select: none; -webkit-user-select: none;
+      text-align: center; white-space: nowrap;
+      background: linear-gradient(to bottom, rgba(17,24,39,.2), rgba(17,24,39,.1), transparent);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      line-height: 1; max-width: 95vw; z-index: 0;
+    }
+    @media (min-width: 768px) { .footer-bg-text { bottom: 128px; } }
+    .footer-logo-wrap {
+      position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%);
+      z-index: 10; padding: 12px; border-radius: 24px;
+      background: rgba(255,255,255,.6);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      border: 2px solid var(--gray-200); transition: border-color .4s ease;
+      display: flex; align-items: center; justify-content: center;
+      filter: drop-shadow(0 0 20px rgba(0,0,0,.5));
+    }
+    .footer-logo-wrap:hover { border-color: var(--gray-900); }
+    @media (min-width: 768px) { .footer-logo-wrap { bottom: 80px; } }
+    .footer-logo-icon-new {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--gray-900), rgba(17,24,39,.8));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+    }
+    @media (min-width: 640px) { .footer-logo-icon-new { width: 80px; height: 80px; border-radius: 16px; } }
+    @media (min-width: 768px) { .footer-logo-icon-new { width: 96px; height: 96px; border-radius: 18px; } }
+    .footer-logo-icon-new svg { width: 40px; height: 40px; }
+    @media (min-width: 640px) { .footer-logo-icon-new svg { width: 48px; height: 48px; } }
+    @media (min-width: 768px) { .footer-logo-icon-new svg { width: 56px; height: 56px; } }
+    .footer-divider {
+      position: absolute; bottom: 128px; left: 50%; transform: translateX(-50%);
+      height: 1px; width: 100%;
+      background: linear-gradient(to right, transparent, var(--gray-200), transparent);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 0;
+    }
+    @media (min-width: 640px) { .footer-divider { bottom: 136px; } }
+    .footer-blur-shadow {
+      position: absolute; bottom: 112px; left: 0;
+      width: 100%; height: 96px;
+      background: linear-gradient(to top, var(--white), rgba(255,255,255,.8), rgba(255,255,255,.4));
+      filter: blur(4px); z-index: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SCROLL TILT ANIMATION
+    ═══════════════════════════════════════════════════════════ */
+    .scroll-tilt-lg {
+      opacity: 0;
+      transform: perspective(1200px) rotateX(-22deg) scale(0.85);
+      transform-origin: center center;
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+    }
+    .scroll-tilt-lg.in-view {
+      opacity: 1;
+      transform: perspective(1200px) rotateX(0deg) scale(1);
+    }
+    .scroll-tilt-sm {
+      opacity: 0;
+      transform: perspective(800px) rotateX(-16deg) scale(0.88);
+      transform-origin: center center;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    }
+    .scroll-tilt-sm.in-view {
+      opacity: 1;
+      transform: perspective(800px) rotateX(0deg) scale(1);
+    }
+    @media (max-width: 768px) {
+      .scroll-tilt-lg { transform: perspective(900px) rotateX(-12deg) scale(0.92); }
+      .scroll-tilt-sm { transform: perspective(600px) rotateX(-8deg)  scale(0.94); }
+    }
 
     /* ═══════════════════════════════════════════════════════════
        FLOATING CTA BUTTON
@@ -376,15 +661,193 @@
       .integration-text { padding: 48px 0; }
     }
     @media (max-width: 768px) {
-      .nav-links, .nav-book { display: none; }
-      .hamburger { display: block; }
       .features-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr; }
       .comparison-container { padding: 12px; border-radius: 1.5rem; }
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       BURGER MENU (mobile nav)
+    ═══════════════════════════════════════════════════════════ */
+    .burger-btn {
+      display: none;
+      align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      background: transparent; border: none; cursor: pointer;
+      border-radius: 50%; padding: 0;
+      color: var(--gray-700); flex-shrink: 0; z-index: 1;
+      transition: background .2s;
+    }
+    .burger-btn:hover { background: rgba(0,0,0,.06); }
+    .burger-btn svg { width: 20px; height: 20px; display: block; }
+    .burger-btn .icon-close { display: none; }
+    .burger-btn.is-open .icon-burger { display: none; }
+    .burger-btn.is-open .icon-close { display: block; }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 49;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px;
+      opacity: 0; transform: translateY(-10px);
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      display: none;
+    }
+    .mobile-menu.open { opacity: 1; transform: none; pointer-events: auto; }
+    .mobile-menu-link {
+      font-size: 30px; font-weight: 700; color: var(--gray-800);
+      padding: 14px 48px; border-radius: 14px; text-decoration: none;
+      transition: color .2s, background .2s;
+    }
+    .mobile-menu-link:hover, .mobile-menu-link:active { color: var(--gold); background: var(--gray-50); }
+    .mobile-menu-cta { margin-top: 20px; }
+
+    body.menu-open { overflow: hidden; }
+
+    @media (max-width: 768px) {
+      .luma-links { display: none !important; }
+      .luma-logo-name { display: block !important; }
+      .luma-bar { padding: 10px 10px 10px 10px !important; }
+      .luma-bar.scrolled { padding: 7px 10px 7px 8px !important; }
+      .luma-logo { padding: 8px 14px 8px 6px !important; margin-right: 0 !important; }
+      .burger-btn { display: flex; }
+      .mobile-menu { display: flex; }
+      .comparison-container { min-height: auto; }
+      .feat-img { height: 200px; }
+      .hero-content { padding-top: 48px; }
+      .integration { padding: 0 16px; }
+      .integration-text { padding-bottom: 20px; }
+      .process { padding: 48px 16px; }
+      .features { padding: 48px 16px; }
+      .step-num { font-size: 72px; }
+      .booking h2 { margin-bottom: 20px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE-WIDE GRID MOUSE EFFECT
+    ═══════════════════════════════════════════════════════════ */
+    .page-grid-base,
+    .page-grid-reveal {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    }
+    .page-grid-base {
+      background-image:
+        linear-gradient(rgba(156,163,175,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(156,163,175,.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .page-grid-reveal {
+      background-image:
+        linear-gradient(rgba(156,163,175,.45) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(156,163,175,.45) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(0px circle at 50% 50%, black, transparent);
+      -webkit-mask-image: radial-gradient(0px circle at 50% 50%, black, transparent);
+    }
+    .has-page-grid { position: relative; overflow: hidden; }
+    .has-page-grid > :not(.page-grid-base):not(.page-grid-reveal):not(.corner-glow-tl):not(.corner-glow-tr):not(.corner-glow-bl):not(.corner-glow-br):not(.section-fade-top):not(.section-fade-bottom) { position: relative; z-index: 1; }
+
+    /* Section edge fades — blend section boundaries to white */
+    .section-fade-top,
+    .section-fade-bottom {
+      position: absolute; left: 0; right: 0;
+      height: 160px; pointer-events: none; z-index: 0;
+    }
+    .section-fade-top {
+      top: 0;
+      background: linear-gradient(to bottom, #ffffff 0%, transparent 100%);
+    }
+    .section-fade-bottom {
+      bottom: 0;
+      background: linear-gradient(to top, #ffffff 0%, transparent 100%);
+    }
+
+    /* Corner gradient glows */
+    .corner-glow-tl,
+    .corner-glow-tr,
+    .corner-glow-bl,
+    .corner-glow-br {
+      position: absolute; pointer-events: none; z-index: 0;
+      width: 600px; height: 600px;
+    }
+    .corner-glow-tl {
+      top: 0; left: 0;
+      background: radial-gradient(circle at top left, rgba(96,165,250,.28) 0%, transparent 68%);
+    }
+    .corner-glow-tr {
+      top: 0; right: 0;
+      background: radial-gradient(circle at top right, rgba(251,146,60,.22) 0%, transparent 68%);
+    }
+    .corner-glow-bl {
+      bottom: 0; left: 0;
+      background: radial-gradient(circle at bottom left, rgba(96,165,250,.22) 0%, transparent 68%);
+    }
+    .corner-glow-br {
+      bottom: 0; right: 0;
+      background: radial-gradient(circle at bottom right, rgba(251,191,36,.2) 0%, transparent 68%);
+    }
+
+
+    /* ── Skip link ────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+      background: var(--blue); color: #fff; font-weight: 600;
+      padding: 10px 20px; border-radius: 0 0 8px 8px;
+      z-index: 9999; text-decoration: none; font-size: 14px;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── Focus styles (keyboard nav) ─────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .luma-link:focus-visible,
+    .btn-demo:focus-visible,
+    .btn-dark:focus-visible,
+    .mobile-menu-link:focus-visible,
+    .fab:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+    .fab:focus-visible { outline-offset: 4px; border-radius: 50%; }
+
+    /* ── will-change hints for animated elements ────────────── */
+    .hero-glow-left, .hero-glow-right { will-change: transform; }
+    .marquee-col-inner { will-change: transform; }
+    .integ-mobile-track { will-change: transform; }
+    .scroll-tilt-lg, .scroll-tilt-sm { will-change: transform, opacity; }
+
+    /* ── Reduced motion — respects user OS preference ────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .marquee-col-inner, .integ-mobile-track { animation: none; }
+      .scroll-tilt-lg, .scroll-tilt-sm { opacity: 1; transform: none; }
+      .fab-pulse { animation: none; }
+    }
+
+    /* ── Touch target minimum sizes ──────────────────────────── */
+    @media (pointer: coarse) {
+      .luma-link { min-height: 44px; display: inline-flex; align-items: center; }
+      .footer-nav-new a { min-height: 44px; display: inline-flex; align-items: center; }
+      .footer-social a { min-height: 44px; min-width: 44px; justify-content: center; }
+    }
+
+
   </style>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ─── FAB ────────────────────────────────────────────────────────── -->
 <a href="#booking" class="fab" aria-label="Book a Demo">
@@ -394,54 +857,73 @@
   </svg>
 </a>
 
-<!-- ─── NAV ────────────────────────────────────────────────────────── -->
-<nav id="nav">
-  <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-      </div>
-      <span class="logo-name">GrowthOS</span><!-- TODO: replace with real logo -->
-    </div>
-    <div class="nav-links">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#comparison" class="nav-link">What We Do</a>
-      <a href="#booking" class="nav-link">Contact</a>
-    </div>
-    <a href="#booking" class="btn-demo nav-book">Book a Demo</a><!-- TODO: replace with booking link -->
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-  </div>
-</nav>
-<div class="mob-drawer" id="mob-drawer">
-  <div class="mob-panel">
-    <a href="#" onclick="closeMob()">Home</a>
-    <a href="#comparison" onclick="closeMob()">What We Do</a>
-    <a href="#booking" onclick="closeMob()">Contact</a>
-    <a href="#booking" onclick="closeMob()" class="btn-demo" style="text-align:center;justify-content:center;margin-top:8px;">Book a Demo</a><!-- TODO: replace with booking link -->
-  </div>
+<!-- ─── LUMA BAR ───────────────────────────────────────────────────── -->
+<div class="luma-bar" id="luma-bar">
+  <div class="luma-glow" id="luma-glow"></div>
+
+  <a href="#hero" class="luma-logo">
+    <svg class="luma-logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="100" height="100" rx="18" fill="#111111"/>
+      <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff"/>
+      <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff" transform="rotate(60 50 50)"/>
+      <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff" transform="rotate(120 50 50)"/>
+    </svg>
+    <span class="luma-logo-name">GrowthOS</span>
+  </a>
+
+  <nav class="luma-links">
+    <a class="luma-link active" data-href="#hero" href="#hero">Home</a>
+    <a class="luma-link" data-href="#comparison" href="#comparison">What We Do</a>
+    <a class="luma-link" data-href="#booking" href="#booking">Contact</a>
+  </nav>
+
+  <button class="burger-btn" id="burger-btn" aria-label="Open menu" aria-expanded="false">
+    <svg class="icon-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
 </div>
 
+<!-- ─── MOBILE MENU ─────────────────────────────────────────────────── -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <a class="mobile-menu-link" href="#hero" data-mobile-link>Home</a>
+  <a class="mobile-menu-link" href="#comparison" data-mobile-link>What We Do</a>
+  <a class="mobile-menu-link" href="#booking" data-mobile-link>Contact</a>
+  <a href="https://cal.com/jeaviit-bhaat/growthos-introduction-call" target="_blank" rel="noopener" class="btn-demo mobile-menu-cta">Book a Demo</a>
+</div>
+
+<!-- ─── MAIN CONTENT ─────────────────────────────────────────────── -->
+<main id="main-content">
+
 <!-- ─── HERO ───────────────────────────────────────────────────────── -->
-<section class="hero">
+<section class="hero" id="hero">
+  <div class="hero-grid-base">
+    <svg><defs><pattern id="grid-base" width="40" height="40" patternUnits="userSpaceOnUse" x="0" y="0"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9ca3af" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid-base)"/></svg>
+  </div>
+  <div class="hero-grid-reveal" id="hero-grid-reveal">
+    <svg><defs><pattern id="grid-reveal" width="40" height="40" patternUnits="userSpaceOnUse" x="0" y="0"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9ca3af" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid-reveal)"/></svg>
+  </div>
   <div class="hero-glow-left"></div>
   <div class="hero-glow-right"></div>
   <div class="hero-content">
     <h1>AI Voice Agents, Made <span class="grad-text">Simple</span></h1>
     <p>Save Time, Make More Money, And Never Miss An Opportunity By Automating Lead Nurturing With AI</p>
     <div class="hero-cta">
-      <a href="#booking" class="btn-demo" style="padding:14px 32px;font-size:15px;">Book a Demo</a><!-- TODO: replace with booking link -->
+      <a href="https://cal.com/jeaviit-bhaat/growthos-introduction-call" target="_blank" rel="noopener" class="btn-demo" style="padding:14px 32px;font-size:15px;">Book a Demo</a>
     </div>
   </div>
 </section>
 
 <!-- ─── COMPARISON / WHAT WE DO ─────────────────────────────────────── -->
-<div id="comparison" class="comparison-section">
+<div id="comparison" class="comparison-section has-page-grid">
+  <div class="page-grid-base"></div>
+  <div class="page-grid-reveal"></div>
+  <div class="section-fade-top"></div>
   <div class="container-6xl" style="padding:0 4px;">
     <div style="max-width:720px;margin:0 auto;padding:0 16px;">
       <h2 class="comparison-heading">
@@ -449,7 +931,7 @@
         <span class="grad-text">Opportunities?</span>
       </h2>
     </div>
-    <div class="comparison-container">
+    <div class="comparison-container scroll-tilt-lg">
       <div class="comparison-grid">
 
         <!-- LEFT: Traditional -->
@@ -457,7 +939,7 @@
           <div>
             <div class="comp-card-title" style="margin-bottom:20px;">Traditional Sales Systems</div>
             <div class="comp-img-wrap" style="margin-bottom:24px;">
-              <img src="assets/images/oldway.png" alt="Traditional Sales Systems" />
+              <img src="assets/images/oldway.png" alt="Traditional Sales Systems" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="comp-items">
@@ -514,12 +996,17 @@
           <div>
             <div class="comp-card-logo" style="margin-bottom:20px;">
               <div class="logo-img-sm">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              </div><!-- TODO: replace with real logo -->
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;" aria-hidden="true">
+                  <rect width="100" height="100" rx="18" fill="#111111"/>
+                  <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff"/>
+                  <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff" transform="rotate(60 50 50)"/>
+                  <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff" transform="rotate(120 50 50)"/>
+                </svg>
+              </div>
               <div class="comp-card-title">The GrowthOS System</div>
             </div>
             <div class="comp-img-wrap" style="margin-bottom:24px;">
-              <img src="assets/images/system.png" alt="The GrowthOS System" />
+              <img src="assets/images/system.png" alt="The GrowthOS System" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="comp-items">
@@ -587,100 +1074,396 @@
     <div class="integration-text">
       <h2>We can integrate seamlessly into your current workflow</h2>
       <p>With the power of APIs, we can integrate the GrowthOS system directly into your current tech stack</p>
-      <a href="#booking" class="btn-dark">Book a Demo</a><!-- TODO: replace with booking link -->
+      <a href="https://cal.com/jeaviit-bhaat/growthos-introduction-call" target="_blank" rel="noopener" class="btn-dark">Book a Demo</a>
     </div>
     <div class="marquee-cols">
-      <!-- Column 1 - normal -->
+      <!-- Column 1 — slow downward -->
       <div class="marquee-col">
         <div class="marquee-col-inner slow">
-          <div class="integ-circle"><img src="assets/features/i1.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i2.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i3.png" alt="Integration" /></div>
-          <!-- duplicate for loop -->
-          <div class="integ-circle"><img src="assets/features/i1.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i2.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i3.png" alt="Integration" /></div>
+          <!-- monday.com -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 88 32" width="72" height="26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="14" cy="16" r="14" fill="#F4284A"/>
+                <circle cx="44" cy="16" r="14" fill="#FFCB00"/>
+                <circle cx="74" cy="16" r="14" fill="#00CA72"/>
+              </svg>
+            </div>
+            <span class="integ-label">monday.com</span>
+          </div>
+          <!-- Pipedrive -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="56" height="56" rx="12" fill="#25A162"/>
+                <text x="30" y="46" text-anchor="middle" font-size="40" font-weight="900" fill="white" font-family="Arial, sans-serif">P</text>
+              </svg>
+            </div>
+            <span class="integ-label">Pipedrive</span>
+          </div>
+          <!-- Asana -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 72 64" width="58" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="36" cy="13" r="13" fill="#F06A6A"/>
+                <circle cx="13" cy="51" r="13" fill="#F06A6A"/>
+                <circle cx="59" cy="51" r="13" fill="#F06A6A"/>
+              </svg>
+            </div>
+            <span class="integ-label">Asana</span>
+          </div>
+          <!-- duplicates for seamless loop -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 88 32" width="72" height="26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="14" cy="16" r="14" fill="#F4284A"/>
+                <circle cx="44" cy="16" r="14" fill="#FFCB00"/>
+                <circle cx="74" cy="16" r="14" fill="#00CA72"/>
+              </svg>
+            </div>
+            <span class="integ-label">monday.com</span>
+          </div>
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="56" height="56" rx="12" fill="#25A162"/>
+                <text x="30" y="46" text-anchor="middle" font-size="40" font-weight="900" fill="white" font-family="Arial, sans-serif">P</text>
+              </svg>
+            </div>
+            <span class="integ-label">Pipedrive</span>
+          </div>
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 72 64" width="58" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="36" cy="13" r="13" fill="#F06A6A"/>
+                <circle cx="13" cy="51" r="13" fill="#F06A6A"/>
+                <circle cx="59" cy="51" r="13" fill="#F06A6A"/>
+              </svg>
+            </div>
+            <span class="integ-label">Asana</span>
+          </div>
         </div>
       </div>
-      <!-- Column 2 - reverse -->
+
+      <!-- Column 2 — reverse (upward) -->
       <div class="marquee-col">
         <div class="marquee-col-inner reverse">
-          <div class="integ-circle"><img src="assets/features/i2.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i3.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i1.png" alt="Integration" /></div>
-          <!-- duplicate -->
-          <div class="integ-circle"><img src="assets/features/i2.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i3.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i1.png" alt="Integration" /></div>
+          <!-- Salesforce -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 80 60" width="68" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M34,52 C22,52 14,44 14,34 C8,34 2,28 4,20 C6,14 12,10 18,12 C20,4 28,0 38,2 C44,0 50,2 54,8 C58,2 66,2 70,8 C76,10 78,18 74,24 C78,26 80,34 76,40 C72,46 66,50 58,48 L20,48 Z" fill="#00A1E0"/>
+                <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="900" fill="white" font-family="Arial, sans-serif">S</text>
+              </svg>
+            </div>
+            <span class="integ-label">Salesforce</span>
+          </div>
+          <!-- HubSpot -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="30" cy="10" r="7" fill="#FF7A59"/>
+                <circle cx="50" cy="30" r="7" fill="#FF7A59"/>
+                <circle cx="30" cy="50" r="7" fill="#FF7A59"/>
+                <circle cx="10" cy="30" r="7" fill="#FF7A59"/>
+                <circle cx="30" cy="30" r="9" fill="#FF7A59"/>
+                <line x1="30" y1="17" x2="30" y2="21" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+                <line x1="43" y1="30" x2="39" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+                <line x1="30" y1="43" x2="30" y2="39" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+                <line x1="17" y1="30" x2="21" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="integ-label">HubSpot</span>
+          </div>
+          <!-- monday.com -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 88 32" width="72" height="26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="14" cy="16" r="14" fill="#F4284A"/>
+                <circle cx="44" cy="16" r="14" fill="#FFCB00"/>
+                <circle cx="74" cy="16" r="14" fill="#00CA72"/>
+              </svg>
+            </div>
+            <span class="integ-label">monday.com</span>
+          </div>
+          <!-- duplicates -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 80 60" width="68" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M34,52 C22,52 14,44 14,34 C8,34 2,28 4,20 C6,14 12,10 18,12 C20,4 28,0 38,2 C44,0 50,2 54,8 C58,2 66,2 70,8 C76,10 78,18 74,24 C78,26 80,34 76,40 C72,46 66,50 58,48 L20,48 Z" fill="#00A1E0"/>
+                <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="900" fill="white" font-family="Arial, sans-serif">S</text>
+              </svg>
+            </div>
+            <span class="integ-label">Salesforce</span>
+          </div>
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="30" cy="10" r="7" fill="#FF7A59"/>
+                <circle cx="50" cy="30" r="7" fill="#FF7A59"/>
+                <circle cx="30" cy="50" r="7" fill="#FF7A59"/>
+                <circle cx="10" cy="30" r="7" fill="#FF7A59"/>
+                <circle cx="30" cy="30" r="9" fill="#FF7A59"/>
+                <line x1="30" y1="17" x2="30" y2="21" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+                <line x1="43" y1="30" x2="39" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+                <line x1="30" y1="43" x2="30" y2="39" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+                <line x1="17" y1="30" x2="21" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="integ-label">HubSpot</span>
+          </div>
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 88 32" width="72" height="26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="14" cy="16" r="14" fill="#F4284A"/>
+                <circle cx="44" cy="16" r="14" fill="#FFCB00"/>
+                <circle cx="74" cy="16" r="14" fill="#00CA72"/>
+              </svg>
+            </div>
+            <span class="integ-label">monday.com</span>
+          </div>
         </div>
       </div>
-      <!-- Column 3 - normal -->
+
+      <!-- Column 3 — normal downward -->
       <div class="marquee-col">
         <div class="marquee-col-inner">
-          <div class="integ-circle"><img src="assets/features/i3.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i1.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i2.png" alt="Integration" /></div>
-          <!-- duplicate -->
-          <div class="integ-circle"><img src="assets/features/i3.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i1.png" alt="Integration" /></div>
-          <div class="integ-circle"><img src="assets/features/i2.png" alt="Integration" /></div>
+          <!-- Asana -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 72 64" width="58" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="36" cy="13" r="13" fill="#F06A6A"/>
+                <circle cx="13" cy="51" r="13" fill="#F06A6A"/>
+                <circle cx="59" cy="51" r="13" fill="#F06A6A"/>
+              </svg>
+            </div>
+            <span class="integ-label">Asana</span>
+          </div>
+          <!-- Pipedrive -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="56" height="56" rx="12" fill="#25A162"/>
+                <text x="30" y="46" text-anchor="middle" font-size="40" font-weight="900" fill="white" font-family="Arial, sans-serif">P</text>
+              </svg>
+            </div>
+            <span class="integ-label">Pipedrive</span>
+          </div>
+          <!-- Salesforce -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 80 60" width="68" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M34,52 C22,52 14,44 14,34 C8,34 2,28 4,20 C6,14 12,10 18,12 C20,4 28,0 38,2 C44,0 50,2 54,8 C58,2 66,2 70,8 C76,10 78,18 74,24 C78,26 80,34 76,40 C72,46 66,50 58,48 L20,48 Z" fill="#00A1E0"/>
+                <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="900" fill="white" font-family="Arial, sans-serif">S</text>
+              </svg>
+            </div>
+            <span class="integ-label">Salesforce</span>
+          </div>
+          <!-- duplicates -->
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 72 64" width="58" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="36" cy="13" r="13" fill="#F06A6A"/>
+                <circle cx="13" cy="51" r="13" fill="#F06A6A"/>
+                <circle cx="59" cy="51" r="13" fill="#F06A6A"/>
+              </svg>
+            </div>
+            <span class="integ-label">Asana</span>
+          </div>
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="56" height="56" rx="12" fill="#25A162"/>
+                <text x="30" y="46" text-anchor="middle" font-size="40" font-weight="900" fill="white" font-family="Arial, sans-serif">P</text>
+              </svg>
+            </div>
+            <span class="integ-label">Pipedrive</span>
+          </div>
+          <div class="integ-item">
+            <div class="integ-circle">
+              <svg viewBox="0 0 80 60" width="68" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M34,52 C22,52 14,44 14,34 C8,34 2,28 4,20 C6,14 12,10 18,12 C20,4 28,0 38,2 C44,0 50,2 54,8 C58,2 66,2 70,8 C76,10 78,18 74,24 C78,26 80,34 76,40 C72,46 66,50 58,48 L20,48 Z" fill="#00A1E0"/>
+                <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="900" fill="white" font-family="Arial, sans-serif">S</text>
+              </svg>
+            </div>
+            <span class="integ-label">Salesforce</span>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mobile horizontal scroll — hidden on desktop -->
+  <div class="integ-mobile-wrap">
+    <div class="integ-mobile-track">
+      <!-- set 1 -->
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 88 32" width="68" height="25" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="16" r="14" fill="#F4284A"/>
+            <circle cx="44" cy="16" r="14" fill="#FFCB00"/>
+            <circle cx="74" cy="16" r="14" fill="#00CA72"/>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">monday.com</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 60 60" width="48" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="2" width="56" height="56" rx="12" fill="#25A162"/>
+            <text x="30" y="46" text-anchor="middle" font-size="40" font-weight="900" fill="white" font-family="Arial, sans-serif">P</text>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">Pipedrive</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 72 64" width="54" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="36" cy="13" r="13" fill="#F06A6A"/>
+            <circle cx="13" cy="51" r="13" fill="#F06A6A"/>
+            <circle cx="59" cy="51" r="13" fill="#F06A6A"/>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">Asana</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 80 60" width="64" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M34,52 C22,52 14,44 14,34 C8,34 2,28 4,20 C6,14 12,10 18,12 C20,4 28,0 38,2 C44,0 50,2 54,8 C58,2 66,2 70,8 C76,10 78,18 74,24 C78,26 80,34 76,40 C72,46 66,50 58,48 L20,48 Z" fill="#00A1E0"/>
+            <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="900" fill="white" font-family="Arial, sans-serif">S</text>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">Salesforce</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 60 60" width="48" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="10" r="7" fill="#FF7A59"/>
+            <circle cx="50" cy="30" r="7" fill="#FF7A59"/>
+            <circle cx="30" cy="50" r="7" fill="#FF7A59"/>
+            <circle cx="10" cy="30" r="7" fill="#FF7A59"/>
+            <circle cx="30" cy="30" r="9" fill="#FF7A59"/>
+            <line x1="30" y1="17" x2="30" y2="21" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+            <line x1="43" y1="30" x2="39" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+            <line x1="30" y1="43" x2="30" y2="39" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+            <line x1="17" y1="30" x2="21" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">HubSpot</span>
+      </div>
+      <!-- set 2 — exact duplicate for seamless loop -->
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 88 32" width="68" height="25" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="16" r="14" fill="#F4284A"/>
+            <circle cx="44" cy="16" r="14" fill="#FFCB00"/>
+            <circle cx="74" cy="16" r="14" fill="#00CA72"/>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">monday.com</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 60 60" width="48" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="2" width="56" height="56" rx="12" fill="#25A162"/>
+            <text x="30" y="46" text-anchor="middle" font-size="40" font-weight="900" fill="white" font-family="Arial, sans-serif">P</text>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">Pipedrive</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 72 64" width="54" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="36" cy="13" r="13" fill="#F06A6A"/>
+            <circle cx="13" cy="51" r="13" fill="#F06A6A"/>
+            <circle cx="59" cy="51" r="13" fill="#F06A6A"/>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">Asana</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 80 60" width="64" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M34,52 C22,52 14,44 14,34 C8,34 2,28 4,20 C6,14 12,10 18,12 C20,4 28,0 38,2 C44,0 50,2 54,8 C58,2 66,2 70,8 C76,10 78,18 74,24 C78,26 80,34 76,40 C72,46 66,50 58,48 L20,48 Z" fill="#00A1E0"/>
+            <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="900" fill="white" font-family="Arial, sans-serif">S</text>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">Salesforce</span>
+      </div>
+      <div class="integ-mobile-item">
+        <div class="integ-mobile-circle">
+          <svg viewBox="0 0 60 60" width="48" height="48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="10" r="7" fill="#FF7A59"/>
+            <circle cx="50" cy="30" r="7" fill="#FF7A59"/>
+            <circle cx="30" cy="50" r="7" fill="#FF7A59"/>
+            <circle cx="10" cy="30" r="7" fill="#FF7A59"/>
+            <circle cx="30" cy="30" r="9" fill="#FF7A59"/>
+            <line x1="30" y1="17" x2="30" y2="21" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+            <line x1="43" y1="30" x2="39" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+            <line x1="30" y1="43" x2="30" y2="39" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+            <line x1="17" y1="30" x2="21" y2="30" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="integ-mobile-label">HubSpot</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ─── FEATURES ───────────────────────────────────────────────────── -->
-<div class="features-section-wrap">
+<div id="features" class="features-section-wrap has-page-grid">
+  <div class="page-grid-base"></div>
+  <div class="page-grid-reveal"></div>
+  <div class="section-fade-bottom"></div>
 <section class="features">
   <div class="features-header">
     <h2>Features You'll Actually Love</h2>
     <p>Our system can call leads within 60 seconds of them filling in an online form making them 21x more likely to convert</p>
   </div>
   <div class="features-grid">
-    <div class="feat-card">
-      <div class="feat-img"><img src="assets/features/crm.png" alt="CRM Integration Interface" /></div>
+    <div class="feat-card scroll-tilt-sm">
+      <div class="feat-img"><img src="assets/features/crm.png" alt="CRM Integration Interface" loading="lazy" decoding="async" /></div>
       <div class="feat-body">
         <div class="feat-title">CRM Integration</div>
         <div class="feat-text">Our systems are flexible. We can adapt it to fit with your existing workflows or CRM software.</div>
       </div>
     </div>
-    <div class="feat-card">
-      <div class="feat-img"><img src="assets/features/calendar.png" alt="Calendar Booking Interface" /></div>
+    <div class="feat-card scroll-tilt-sm">
+      <div class="feat-img"><img src="assets/features/calendar.png" alt="Calendar Booking Interface" loading="lazy" decoding="async" /></div>
       <div class="feat-body">
         <div class="feat-title">Calendar Booking</div>
         <div class="feat-text">Books qualified prospects directly into your calendar without back-and-forth emails.</div>
       </div>
     </div>
-    <div class="feat-card">
-      <div class="feat-img"><img src="assets/features/lead.png" alt="Lead Qualification Interface" /></div>
+    <div class="feat-card scroll-tilt-sm">
+      <div class="feat-img"><img src="assets/features/lead.png" alt="Lead Qualification Interface" loading="lazy" decoding="async" /></div>
       <div class="feat-body">
         <div class="feat-title">Lead Qualification</div>
         <div class="feat-text">Pre-screens every caller using your specific criteria before passing them to your team.</div>
       </div>
     </div>
-    <div class="feat-card">
-      <div class="feat-img"><img src="assets/features/multicall.png" alt="Multi-Call Handling Interface" /></div>
+    <div class="feat-card scroll-tilt-sm">
+      <div class="feat-img"><img src="assets/features/multicall.png" alt="Multi-Call Handling Interface" loading="lazy" decoding="async" /></div>
       <div class="feat-body">
         <div class="feat-title">Multi-Call Handling</div>
         <div class="feat-text">Handles 10+ conversations simultaneously — no more busy signals or missed calls.</div>
       </div>
     </div>
-    <div class="feat-card">
+    <div class="feat-card scroll-tilt-sm">
       <div class="feat-img feat-flags">
         <div class="flags-grid">
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/gb.png" alt="English" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/us.png" alt="English US" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/es.png" alt="Spanish" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/it.png" alt="Italian" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/de.png" alt="German" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/fr.png" alt="French" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/cn.png" alt="Chinese" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/nl.png" alt="Dutch" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/br.png" alt="Portuguese" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/dk.png" alt="Danish" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/se.png" alt="Swedish" /></div>
-          <div class="flag-circle"><img src="https://flagcdn.com/w80/gr.png" alt="Greek" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/gb.png" alt="English" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/us.png" alt="English US" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/es.png" alt="Spanish" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/it.png" alt="Italian" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/de.png" alt="German" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/fr.png" alt="French" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/cn.png" alt="Chinese" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/nl.png" alt="Dutch" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/br.png" alt="Portuguese" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/dk.png" alt="Danish" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/se.png" alt="Swedish" loading="lazy" decoding="async" /></div>
+          <div class="flag-circle"><img src="https://flagcdn.com/w80/gr.png" alt="Greek" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="feat-body">
@@ -688,8 +1471,8 @@
         <div class="feat-text">Our Agents can communicate in 20+ different languages professionally.</div>
       </div>
     </div>
-    <div class="feat-card">
-      <div class="feat-img"><img src="assets/features/availability.png" alt="24/7 Availability Interface" /></div>
+    <div class="feat-card scroll-tilt-sm">
+      <div class="feat-img"><img src="assets/features/availability.png" alt="24/7 Availability Interface" loading="lazy" decoding="async" /></div>
       <div class="feat-body">
         <div class="feat-title">24/7 Availability</div>
         <div class="feat-text">Captures leads around the clock, including weekends, holidays, and after business hours.</div>
@@ -700,21 +1483,30 @@
 </div>
 
 <!-- ─── PROCESS ────────────────────────────────────────────────────── -->
+<div class="has-page-grid">
+  <div class="page-grid-base"></div>
+  <div class="page-grid-reveal"></div>
+  <div class="corner-glow-tl"></div>
+  <div class="corner-glow-tr"></div>
+  <div class="corner-glow-bl"></div>
+  <div class="corner-glow-br"></div>
+  <div class="section-fade-top"></div>
+  <div class="section-fade-bottom"></div>
 <section class="process">
   <div class="process-label">Process</div>
   <h2>How It Works?</h2>
   <div class="process-grid">
-    <div class="step-card">
+    <div class="step-card scroll-tilt-sm">
       <div class="step-num">1</div>
       <div class="step-title">System Audit</div>
       <div class="step-text">We analyze your current sales process to identify weaknesses we can fix and strengths we can replicate with the AI system.</div>
     </div>
-    <div class="step-card">
+    <div class="step-card scroll-tilt-sm">
       <div class="step-num">2</div>
       <div class="step-title">Build &amp; Integrate</div>
       <div class="step-text">Our team creates your custom AI agents and integrates them seamlessly with your existing CRM and calendar systems.</div>
     </div>
-    <div class="step-card">
+    <div class="step-card scroll-tilt-sm">
       <div class="step-num">3</div>
       <div class="step-title">Launch &amp; Optimize</div>
       <div class="step-text">This is the most important part. We work with you side by side, providing ongoing support and performance monitoring to maximize results.</div>
@@ -725,44 +1517,301 @@
 <!-- ─── BOOKING / CTA ──────────────────────────────────────────────── -->
 <div id="booking" class="booking">
   <h2>Book a Free Introduction Call</h2>
-  <div class="booking-actions">
-    <a href="#" class="btn-demo" style="padding:14px 36px;font-size:15px;">Book a Demo →</a><!-- TODO: replace with Calendly/booking link -->
-    <p style="font-size:13px;color:var(--gray-500);">Free 30-minute call · No commitment required</p>
+  <p class="booking-sub">Free 30-minute call · No commitment required</p>
+  <div class="booking-embed-wrap">
+    <div id="my-cal-inline-growthos-introduction-call"></div>
   </div>
 </div>
+</div>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "growthos-introduction-call", {origin:"https://app.cal.com"});
+  Cal.ns["growthos-introduction-call"]("inline", {
+    elementOrSelector:"#my-cal-inline-growthos-introduction-call",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+    calLink: "jeaviit-bhaat/growthos-introduction-call",
+  });
+  Cal.ns["growthos-introduction-call"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#0c1a3a"},"dark":{"cal-brand":"#60a5fa"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+
+</main>
 
 <!-- ─── FOOTER ─────────────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="footer-logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      </div><!-- TODO: replace with real logo -->
-      <span class="footer-logo-name">GrowthOS</span>
+<section class="footer-section">
+<footer class="footer-new">
+
+  <div class="footer-container">
+    <div class="footer-top">
+      <h2 class="footer-brand-name">GrowthOS</h2>
+      <p class="footer-brand-desc">AI Voice Agents that save time, make more money, and never miss an opportunity.</p>
+
+      <div class="footer-social">
+        <a href="https://x.com/Jeaviit" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.26 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/jeaviit-bhaat/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:jeaviitbhaat@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+
+      <nav class="footer-nav-new">
+        <a href="#hero">Home</a>
+        <a href="#comparison">What We Do</a>
+        <a href="#booking">Contact</a>
+      </nav>
     </div>
-    <nav class="footer-nav">
-      <a href="#">Home</a>
-      <a href="#comparison">What We Do</a>
-      <a href="#booking">Contact</a>
-    </nav>
-    <a href="#booking" class="btn-demo">Start AI Voice Call</a><!-- TODO: replace with real link -->
+
+    <div class="footer-bottom-bar">
+      <p>©<span id="footer-year"></span> GrowthOS. All rights reserved.</p>
+    </div>
   </div>
-  <div style="max-width:1152px;margin:16px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);text-align:center;">
-    <span class="footer-copy">© 2025 GrowthOS. All rights reserved.</span>
+
+  <div class="footer-bg-text" aria-hidden="true">GROWTHOS</div>
+
+  <div class="footer-logo-wrap" aria-hidden="true">
+    <div class="footer-logo-icon-new">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff"/>
+        <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff" transform="rotate(60 50 50)"/>
+        <rect x="43" y="8" width="14" height="84" rx="7" fill="#ffffff" transform="rotate(120 50 50)"/>
+      </svg>
+    </div>
   </div>
+
+  <div class="footer-divider" aria-hidden="true"></div>
+  <div class="footer-blur-shadow" aria-hidden="true"></div>
+
 </footer>
+</section>
 
 <script>
-  // Nav scroll — shrinks after 80px
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
-
-  // Hamburger
-  const ham = document.getElementById('hamburger');
-  const drawer = document.getElementById('mob-drawer');
-  ham.addEventListener('click', () => drawer.classList.toggle('open'));
-  drawer.addEventListener('click', e => { if (e.target === drawer) drawer.classList.remove('open'); });
-  function closeMob() { drawer.classList.remove('open'); }
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
+
+<script>
+  // Hero grid — scrolling SVG pattern + mouse-reveal mask
+  (function () {
+    const patBase    = document.getElementById('grid-base');
+    const patReveal  = document.getElementById('grid-reveal');
+    const revealLayer = document.getElementById('hero-grid-reveal');
+    const heroEl     = document.getElementById('hero');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let gx = 0, gy = 0;
+
+    if (!reducedMotion) {
+      (function tick() {
+        gx = (gx + 0.5) % 40;
+        gy = (gy + 0.5) % 40;
+        patBase.setAttribute('x', gx);
+        patBase.setAttribute('y', gy);
+        patReveal.setAttribute('x', gx);
+        patReveal.setAttribute('y', gy);
+        requestAnimationFrame(tick);
+      })();
+    }
+
+    heroEl.addEventListener('mousemove', function (e) {
+      const r = heroEl.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const mask = `radial-gradient(300px circle at ${x}px ${y}px, black, transparent)`;
+      revealLayer.style.maskImage = mask;
+      revealLayer.style.webkitMaskImage = mask;
+    }, { passive: true });
+
+    heroEl.addEventListener('mouseleave', function () {
+      revealLayer.style.maskImage = 'radial-gradient(0px circle at 50% 50%, black, transparent)';
+      revealLayer.style.webkitMaskImage = 'radial-gradient(0px circle at 50% 50%, black, transparent)';
+    }, { passive: true });
+  })();
+
+  // Hero glows — slow autonomous drift
+  (function () {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) return;
+    const heroEl   = document.getElementById('hero');
+    const glowLeft  = heroEl.querySelector('.hero-glow-left');
+    const glowRight = heroEl.querySelector('.hero-glow-right');
+    let t = 0;
+
+    (function tick() {
+      t += 0.0025;
+      const lx = Math.sin(t)               * 90;
+      const ly = Math.cos(t * 0.6)         * 55;
+      const rx = Math.sin(t * 0.75 + 1.2)  * 70;
+      const ry = Math.cos(t * 0.45 + 0.8)  * 45;
+      glowLeft.style.transform  = `translate(${lx}px, calc(-35% + ${ly}px)) rotate(-45deg)`;
+      glowRight.style.transform = `translate(${-rx}px, calc(-35% + ${ry}px)) rotate(45deg)`;
+      requestAnimationFrame(tick);
+    })();
+  })();
+
+  // Page-wide grid mouse tracking
+  (function () {
+    const reveals = document.querySelectorAll('.page-grid-reveal');
+    document.addEventListener('mousemove', function (e) {
+      reveals.forEach(function (el) {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const inside = x >= 0 && x <= r.width && y >= 0 && y <= r.height;
+        const mask = inside
+          ? `radial-gradient(300px circle at ${x}px ${y}px, black, transparent)`
+          : 'radial-gradient(0px circle at 50% 50%, black, transparent)';
+        el.style.maskImage = mask;
+        el.style.webkitMaskImage = mask;
+      });
+    }, { passive: true });
+  })();
+
+  // Scroll tilt — 3D perspective reveal via IntersectionObserver
+  (function () {
+    var smEls = document.querySelectorAll('.scroll-tilt-sm');
+    smEls.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 3 * 0.09) + 's';
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.scroll-tilt-lg, .scroll-tilt-sm').forEach(function (el) {
+      observer.observe(el);
+    });
+  })();
+
+  // Burger menu
+  (function () {
+    var burgerBtn   = document.getElementById('burger-btn');
+    var menu        = document.getElementById('mobile-menu');
+    var mobileLinks = Array.from(menu.querySelectorAll('[data-mobile-link]'));
+    var isOpen      = false;
+
+    function openMenu() {
+      isOpen = true;
+      menu.classList.add('open');
+      burgerBtn.classList.add('is-open');
+      document.body.classList.add('menu-open');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      burgerBtn.setAttribute('aria-label', 'Close menu');
+    }
+
+    function closeMenu() {
+      isOpen = false;
+      menu.classList.remove('open');
+      burgerBtn.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      burgerBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    burgerBtn.addEventListener('click', function () {
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(link.getAttribute('href'));
+        closeMenu();
+        if (target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth' }); }, 50);
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) closeMenu();
+    });
+  })();
+
+  // Mobile integration scroll — tap to pause/zoom, tap elsewhere to resume
+  (function () {
+    var track = document.querySelector('.integ-mobile-track');
+    if (!track) return;
+    var items = Array.from(track.querySelectorAll('.integ-mobile-item'));
+
+    function clearActive() {
+      track.classList.remove('is-paused');
+      items.forEach(function (i) { i.classList.remove('is-active'); });
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener('touchstart', function (e) {
+        e.stopPropagation();
+        var alreadyActive = item.classList.contains('is-active');
+        clearActive();
+        if (!alreadyActive) {
+          track.classList.add('is-paused');
+          item.classList.add('is-active');
+        }
+      }, { passive: true });
+    });
+
+    document.addEventListener('touchstart', function (e) {
+      if (!e.target.closest('.integ-mobile-item')) clearActive();
+    }, { passive: true });
+  })();
+
+  // Luma Bar
+  (function () {
+    const bar   = document.getElementById('luma-bar');
+    const glow  = document.getElementById('luma-glow');
+    const links = Array.from(bar.querySelectorAll('.luma-link'));
+    let activeIndex = 0;
+
+    function moveGlow(link) {
+      const barRect  = bar.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      glow.style.left  = (linkRect.left + linkRect.width / 2 - barRect.left) + 'px';
+      glow.style.width = (linkRect.width + 12) + 'px';
+    }
+
+    function setActive(index) {
+      links[activeIndex].classList.remove('active');
+      activeIndex = index;
+      links[activeIndex].classList.add('active');
+      moveGlow(links[activeIndex]);
+    }
+
+    links.forEach(function (link, index) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(link.dataset.href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        setActive(index);
+      });
+    });
+
+    requestAnimationFrame(function () { moveGlow(links[0]); });
+
+    const sections = [
+      { selector: '#hero',       index: 0 },
+      { selector: '#comparison', index: 1 },
+      { selector: '#booking',    index: 2 },
+    ];
+    window.addEventListener('scroll', function () {
+      bar.classList.toggle('scrolled', window.scrollY > 60);
+
+      // reposition glow after bar resizes
+      moveGlow(links[activeIndex]);
+
+      const mid = window.scrollY + window.innerHeight * 0.45;
+      let current = 0;
+      sections.forEach(function (s) {
+        const el = document.querySelector(s.selector);
+        if (el && (el.getBoundingClientRect().top + window.scrollY) <= mid) current = s.index;
+      });
+      if (current !== activeIndex) setActive(current);
+    }, { passive: true });
+  })();
+</script>
+
 </body>
 </html>
